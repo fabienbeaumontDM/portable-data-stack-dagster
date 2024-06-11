@@ -1,4 +1,4 @@
-FROM python:3.11-slim AS compile-image
+FROM python:3.12-slim AS compile-image
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN apt-get update
@@ -25,13 +25,13 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN echo "I am running on $BUILDPLATFORM, building for $TARGETPLATFORM"
 
 RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
-    git clone --depth 1 --branch v0.10.0 https://github.com/duckdb/duckdb && \
+    git clone --depth 1 --branch v1.0.0 https://github.com/duckdb/duckdb && \
     cd duckdb/tools/pythonpkg && python -m pip install . ; \
     elif [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
-    pip install duckdb==0.10.0; \
+    pip install duckdb==1.0.0; \
     fi
 
-FROM python:3.11-slim AS build-image
+FROM python:3.12-slim AS build-image
 
 COPY --from=compile-image /opt/venv /opt/venv
 
