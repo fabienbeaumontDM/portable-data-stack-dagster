@@ -10,3 +10,14 @@ postcard_company:
       schema: postcard_company
       extensions:
         - postgres_scanner
+        - arrow
+        - parquet
+        - aws
+        - azure
+        - fts
+        - httpfs
+        - spatial
+        - inet
+        - iceberg
+        - delta
+        

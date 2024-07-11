@@ -1,4 +1,4 @@
-FROM apache/superset:4.0.1 
+FROM apache/superset:4.0.2 
 
 ARG SUPERSET_ADMIN
 ARG SUPERSET_PASSWORD

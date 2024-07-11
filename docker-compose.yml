@@ -1,7 +1,7 @@
-version: "3.7"
+name: data-major-modern-stack
 
 services:
-  oltp:
+  postgresql:
     image: postgres
     environment:
       POSTGRES_DB: 'sales_oltp'
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./shared:/shared
     depends_on:
-      oltp:
+      postgresql:
         condition: service_healthy
   dagster-dbt:
     build:
