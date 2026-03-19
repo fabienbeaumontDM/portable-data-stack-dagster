@@ -37,7 +37,8 @@ seeds:
     +enabled: true
     +schema: raw
     geography:
-      id: int
-      cityname: varchar(32)
-      countryname: varchar(32)
-      regionname: varchar(32)
+      +column_types:
+        id: int
+        cityname: varchar(32)
+        countryname: varchar(32)
+        regionname: varchar(32)

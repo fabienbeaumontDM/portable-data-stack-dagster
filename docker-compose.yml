@@ -1,4 +1,4 @@
-name: data-major-modern-stack
+name: data-major-stack
 
 services:
   postgresql:
